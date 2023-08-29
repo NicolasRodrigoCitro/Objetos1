@@ -12,13 +12,13 @@ public class WallPostImpl implements WallPost {
 	 * Complete con su implementación
 	 */
 	private String texto;
-	private Boolean destacado;
-	private Integer cantidadDeLike;
+	private boolean destacado;
+	private int cantidadDeLike;
 
 	public WallPostImpl() {
 		this.texto = "Undefined post";
-		this.destacado = false;
-		this.cantidadDeLike = 0;
+//		this.destacado = false;
+//		this.cantidadDeLike = 0;
 	}
 
 	/*
@@ -69,11 +69,7 @@ public class WallPostImpl implements WallPost {
 	  Cambia el post del estado destacado a no destacado y viceversa.
 	 */
 	public void toggleFeatured() {
-		if (this.isFeatured()) {
-			this.destacado = false;
-		} else {
-			this.destacado = true;
-		}
+		destacado= !destacado;
 
 	}
 
