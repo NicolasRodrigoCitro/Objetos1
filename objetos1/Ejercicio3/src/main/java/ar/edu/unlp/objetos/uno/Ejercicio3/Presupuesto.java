@@ -9,7 +9,8 @@ public class Presupuesto {
 	private String cliente;
 	private List<Item> items;
 
-	public Presupuesto() {
+	public Presupuesto(String cliente) {
+		this.cliente=cliente;
 		this.fecha = LocalDate.now();
 		this.items = new ArrayList<Item>();
 	}
@@ -21,9 +22,15 @@ public class Presupuesto {
 	public double calcularTotal() {
 		double total=0;
 		for (Item elemento: this.items) {
-			total=elemento.costo();
+			total+=elemento.costo();
 		}
 		return total;
+	}
+	public LocalDate getFecha() {
+		return this.fecha;
+	}
+	public String getCliente() {
+		return this.cliente;
 	}
 
 }

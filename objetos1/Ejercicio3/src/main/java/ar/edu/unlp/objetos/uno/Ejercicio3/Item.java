@@ -6,12 +6,14 @@ public class Item {
 	private int cantidad;
 	private double costoUnitario;
 
-	public Item() {
-
+	public Item(String detalle, double costoUnitario, int cantidad) {
+		this.detalle=detalle;
+		this.costoUnitario=costoUnitario;
+		this.cantidad=cantidad;
 	}
 
 	public double costo() {
-		return this.cantidad * this.costoUnitario;
+		return (this.cantidad * this.costoUnitario);
 	}
 
 }
