@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Balanza {
-	private int cantidadDeProductos;
-	private double precioTotal;
-	private double pesoTotal;
 	private List<Producto> productos;
-	
+
 	public Balanza() {
 		this.ponerEnCero();
 	}
@@ -18,27 +15,33 @@ public class Balanza {
 	}
 
 	public void agregarProducto(Producto unProducto) {
-		this.cantidadDeProductos+=1;
-		this.pesoTotal+=unProducto.getPeso();
-		this.precioTotal+=unProducto.getPrecio();
+		this.productos.add(unProducto);
 	}
 
 	public Ticket emitirTicket() {
-		Ticket unTicket = new Ticket(this.getCantidadDeProductos(),this.getPrecioTotal(),this.getPesoTotal());
+		Ticket unTicket = new Ticket(this.getCantidadDeProductos(), this.getPrecioTotal(), this.getPesoTotal(),this.productos);
+		this.ponerEnCero();
 		return unTicket;
 	}
 
 	public int getCantidadDeProductos() {
-		return cantidadDeProductos;
+		return this.productos.size();
 	}
 
 	public double getPrecioTotal() {
+		double precioTotal = 0;
+		for (Producto elemento : this.productos) {
+			precioTotal += elemento.getPrecio();
+		}
 		return precioTotal;
 	}
 
 	public double getPesoTotal() {
+		double pesoTotal = 0;
+		for(Producto elemento : this.productos) {
+			pesoTotal+= elemento.getPeso();
+		}
 		return pesoTotal;
 	}
-	
-	
+
 }
