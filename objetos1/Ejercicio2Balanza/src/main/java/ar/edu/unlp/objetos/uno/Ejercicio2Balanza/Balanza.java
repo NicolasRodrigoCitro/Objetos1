@@ -1,18 +1,20 @@
 package ar.edu.unlp.objetos.uno.Ejercicio2Balanza;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Balanza {
 	private int cantidadDeProductos;
 	private double precioTotal;
 	private double pesoTotal;
+	private List<Producto> productos;
 	
 	public Balanza() {
 		this.ponerEnCero();
 	}
 
 	public void ponerEnCero() {
-		this.pesoTotal=0;
-		this.precioTotal=0;
-		this.cantidadDeProductos=0;
+		this.productos = new ArrayList<Producto>();
 	}
 
 	public void agregarProducto(Producto unProducto) {
