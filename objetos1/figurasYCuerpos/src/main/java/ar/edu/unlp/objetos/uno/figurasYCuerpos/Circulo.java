@@ -3,16 +3,13 @@ package ar.edu.unlp.objetos.uno.figurasYCuerpos;
 public class Circulo implements Cara{
 
 	private double radio;
-	private double diametro;
 
 	public double getDiametro() {
 		return this.radio * 2;
 	}
 
-	public void setDiametro(double unRadio) {
-		//Consultar, ya que set diametro es medio raro
-		if (this.radio == unRadio)
-			this.diametro = unRadio * 2;
+	public void setDiametro(double unDimetro) {
+		this.setRadio(unDimetro/2);
 	}
 
 	public double getRadio() {
