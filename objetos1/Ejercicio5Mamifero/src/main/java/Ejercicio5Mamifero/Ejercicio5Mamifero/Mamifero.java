@@ -101,34 +101,25 @@ public class Mamifero {
 			return false;
 	}
 
-	/*
-	 * public boolean tieneComoAncestroA(Mamifero unMamifero) { if
-	 * (this.padre.equals(unMamifero) || (this.padre.equals(unMamifero))) { return
-	 * true; } else { if (this.madre != null)
-	 * this.madre.tieneComoAncestroA(unMamifero); if (this.padre != null)
-	 * this.padre.tieneComoAncestroA(unMamifero); } return false; }
-	 */
+
 	public boolean tieneComoAncestroA(Mamifero unMamifero) {
 		boolean cumple = false;
-		//if (!cumple) {
-		if(!this.equals(unMamifero)) {
-			if (this.comprobarMamifero(this.padre)) {
+
+			if ((!cumple)&&(this.comprobarMamifero(this.padre))) {
 				if (this.padre.equals(unMamifero)) {
 					 cumple = true;
 				} else {
-					this.padre.tieneComoAncestroA(unMamifero);
+					cumple = this.padre.tieneComoAncestroA(unMamifero);
 				}
 			}
-			if (this.comprobarMamifero(this.madre)) {
+			if ((!cumple)&&(this.comprobarMamifero(this.madre))) {
 				if (this.madre.equals(unMamifero)) {
 					 cumple = true;
 				} else {
-					this.madre.tieneComoAncestroA(unMamifero);
+					cumple =this.madre.tieneComoAncestroA(unMamifero);
 				}
 			}
-		}else
-			cumple=false;
-	//	}
+
 		return cumple;
 	}
 
