@@ -100,20 +100,29 @@ public class Mamifero {
 		else
 			return false;
 	}
-      //asdasdasdsad
-	public boolean tieneComoAncestroA(Mamifero unMamifero) {
 
-		
-		if (!this.equals(unMamifero)) {
-			if (this.comprobarMamifero(this.padre)) {
-				return this.padre.tieneComoAncestroA(unMamifero);
+
+
+	public boolean tieneComoAncestroA(Mamifero unMamifero) {
+		boolean cumple = false;
+
+			if ((!cumple)&&(this.comprobarMamifero(this.padre))) {
+				if (this.padre.equals(unMamifero)) {
+					 cumple = true;
+				} else {
+					cumple = this.padre.tieneComoAncestroA(unMamifero);
+				}
 			}
-			if (this.comprobarMamifero(this.madre)) {
-				return this.madre.tieneComoAncestroA(unMamifero);
+			if ((!cumple)&&(this.comprobarMamifero(this.madre))) {
+				if (this.madre.equals(unMamifero)) {
+					 cumple = true;
+				} else {
+					cumple =this.madre.tieneComoAncestroA(unMamifero);
+				}
 			}
-		} else
-			return true;
-		return false;
+
+		return cumple;
+
 	}
 
 }
