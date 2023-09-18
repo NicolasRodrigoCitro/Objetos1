@@ -16,14 +16,18 @@ public class Farola {
 		return this.encendido;
 	}
 
-	public Object getNeighbors() {
+	public List<Farola> getNeighbors() {
 		return new ArrayList<>(this.farolas);
 	}
 
 	private boolean comprobarVecino(Farola farolaDos) {
 		// retorna si la farola recibida por parametro ya existe en la coleccion.
-		//return this.farolas.equals(farolaDos);
-		return this.farolas.stream().filter(f -> f.equals(farolaDos)).findFirst();
+		//return this.farolas.stream().filter(f -> f.equals(farolaDos));
+		//return this.farolas.stream().anyMatch(f -> f.equals(farolaDos));
+		return this.farolas.stream()
+	            .filter(f -> f.equals(farolaDos))
+	            .findAny() //encontrar alguno
+	            .isPresent(); //devuelve true si encotro almenos uno
 	}
 
 	public void pairWithNeighbor(Farola farolaDos) {
@@ -46,7 +50,7 @@ public class Farola {
 
 	public void turnOff() {
 		if (this.encendido) {
-			this.encendido = true;
+			this.encendido = false;
 			for (Farola f: this.farolas) {
 				f.turnOff();
 			}
