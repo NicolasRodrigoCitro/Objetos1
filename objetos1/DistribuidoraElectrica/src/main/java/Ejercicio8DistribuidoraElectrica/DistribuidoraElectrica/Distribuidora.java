@@ -1,5 +1,6 @@
 package Ejercicio8DistribuidoraElectrica.DistribuidoraElectrica;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,6 +8,10 @@ public class Distribuidora {
 	private double precioKWh;
 	private List<Usuario> usuarios;
 	
+	
+	public Distribuidora(double precioKWh) {
+		this.precioKWh=precioKWh;
+	}
 	public void agregarUsuario(Usuario unUsuario) {
 		this.usuarios.add(unUsuario);
 	}
@@ -25,11 +30,17 @@ public class Distribuidora {
 				
 	}
 	
+	public double getPrecioKW() {
+		return this.precioKWh;
+	}
 	
 	public void precioKWh(double unPrecioKWh) {
 		this.precioKWh=unPrecioKWh;
 	}
 	
+	public List<Usuario> getUsuarios(){
+		return new ArrayList<>(this.usuarios);
+	}
 	
 	
 	

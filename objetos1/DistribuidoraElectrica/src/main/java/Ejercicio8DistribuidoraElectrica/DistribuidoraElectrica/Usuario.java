@@ -26,7 +26,7 @@ public class Usuario {
 		this.consumos.add(medicion);
 	}
 	
-	private Consumo ultimoConsumo() {
+	public Consumo ultimoConsumo() {
 		return this.consumos.stream()
 	            .max((consumo1, consumo2) -> consumo1.getFecha().compareTo(consumo2.getFecha()))      
 	            .orElse(null); // Devuelve null si la lista de consumos está vacía
@@ -36,7 +36,7 @@ public class Usuario {
 	}
 	
 	
-	//revisar este metodo
+	
 	public Factura facturarEnBaseA(double precioKWh) {
 		double fdp = this.ultimoConsumo().factorDePotencia();
 		double costo = this.ultimoConsumo().costoEnBaseA(precioKWh);

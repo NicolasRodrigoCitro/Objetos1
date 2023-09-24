@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Ejercicio8DistribuidoraElectrica.DistribuidoraElectrica.Consumo;
+import Ejercicio8DistribuidoraElectrica.DistribuidoraElectrica.Distribuidora;
+import Ejercicio8DistribuidoraElectrica.DistribuidoraElectrica.Usuario;
+
 public class DistribuidoraTest {
 
 	private Distribuidora distribuidora, redCompleta;

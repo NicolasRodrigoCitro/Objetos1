@@ -20,15 +20,15 @@ public class Factura {
 		return this.montoEnergiaActiva;
 	}
 	
-	public Usuario usuario() {
+	public Usuario getUsuario() {
 		return this.usuario;
 	}
 	
-	public LocalDate fecha() {
+	public LocalDate getFecha() {
 		return this.fecha;
 	}
 	
-	public double descuento() {
+	public double getDescuento() {
 		return this.descuento;
 	}
 	
