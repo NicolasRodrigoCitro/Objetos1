@@ -20,6 +20,8 @@ public class Usuario {
 	public Usuario(String nombre, String domicilio) {
 		this.nombre=nombre;
 		this.domicilio=domicilio;
+		this.facturas = new ArrayList<>();
+		this.consumos = new ArrayList<>();
 	}
 	
 	public void agregarMedicion(Consumo medicion) {
@@ -32,7 +34,10 @@ public class Usuario {
 	            .orElse(null); // Devuelve null si la lista de consumos está vacía
 	}
 	public double ultimoConsumoActiva() {
-		return this.ultimoConsumo().getConsumoDeEnergiaActiva();
+		if(this.ultimoConsumo()!=null)
+			return this.ultimoConsumo().getConsumoDeEnergiaActiva();
+		else
+			return 0;
 	}
 	
 	

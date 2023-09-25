@@ -9,8 +9,10 @@ public class Distribuidora {
 	private List<Usuario> usuarios;
 	
 	
+	
 	public Distribuidora(double precioKWh) {
 		this.precioKWh=precioKWh;
+		usuarios = new ArrayList<>();
 	}
 	public void agregarUsuario(Usuario unUsuario) {
 		this.usuarios.add(unUsuario);

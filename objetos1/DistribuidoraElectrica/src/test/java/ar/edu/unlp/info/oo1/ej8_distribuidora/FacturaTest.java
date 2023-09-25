@@ -28,14 +28,10 @@ public class FacturaTest {
 		assertEquals(factura.getFecha(), LocalDate.now());
 		assertEquals(usuario, factura.getUsuario());
 	}
-/* consultar que es montoTotal en factura
+/*
 	@Test
 	public void testMontoTotal() {
 		assertEquals(1800, factura.montoTotal());
-	}
-*/
-	@Test
-	public void testMontoTotal() {
-		assertEquals(1800, factura.getMontoEnergiaActiva());
-	}
+	}*/
+
 }

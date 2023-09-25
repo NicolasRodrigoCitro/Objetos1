@@ -36,7 +36,8 @@ public class Consumo {
 
 	public double factorDePotencia() {
 		return this.consumoDeEnergiaActiva
-				/ Math.sqrt(Math.pow(this.consumoDeEnergiaActiva, 2) + Math.pow(this.consumoDeEnergiaReactiva, 2));
+		/ Math.sqrt(Math.pow(this.consumoDeEnergiaActiva, 2) +
+		Math.pow(this.consumoDeEnergiaReactiva, 2));
 	}
 
 }
