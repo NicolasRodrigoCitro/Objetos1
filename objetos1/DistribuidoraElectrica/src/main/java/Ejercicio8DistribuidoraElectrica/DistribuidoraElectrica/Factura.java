@@ -19,6 +19,9 @@ public class Factura {
 	public double getMontoEnergiaActiva() {
 		return this.montoEnergiaActiva;
 	}
+	public double montoTotal() {
+		return (this.getMontoEnergiaActiva() - (this.getMontoEnergiaActiva()*this.getDescuento()/100));
+	}
 	
 	public Usuario getUsuario() {
 		return this.usuario;

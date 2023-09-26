@@ -41,10 +41,11 @@ public class DistribuidoraTestVersionPropia {
 	
 	@Test
 	public void testConstructor() {
+		//Al verificar el constructor, crear un nuevo distribuidor, dentro del test
 		assertEquals(50d, this.distribuidora.getPrecioKW());
 		assertEquals(0d, this.distribuidora.consumoTotalActiva());
-		assertTrue(this.distribuidora.facturar().isEmpty());
-		assertTrue(this.distribuidora.getUsuarios().isEmpty());
+		//assertTrue(this.distribuidora.facturar().isEmpty());
+		//assertTrue(this.distribuidora.getUsuarios().isEmpty());
 	}
 	
 	@Test
@@ -52,12 +53,13 @@ public class DistribuidoraTestVersionPropia {
 		Usuario delfor = new Usuario("Delfor","Avenida siempre viva 1234");
 		this.distribuidora.agregarUsuario(delfor);
 		assertTrue(this.distribuidora.getUsuarios().contains(delfor));
-		assertEquals(1, this.distribuidora.getUsuarios().size());
+		//assertEquals(1, this.distribuidora.getUsuarios().size());
 	}
 	
 	@Test 
 	public void testConsumoTotalDeLaRed() {
 		assertEquals(0,this.redCompleta.consumoTotalActiva());
+		//Se puede testear por cada uno
 		this.frida.agregarMedicion(medio);
 		this.pablo.agregarMedicion(bajo);
 		this.mercedes.agregarMedicion(alto);

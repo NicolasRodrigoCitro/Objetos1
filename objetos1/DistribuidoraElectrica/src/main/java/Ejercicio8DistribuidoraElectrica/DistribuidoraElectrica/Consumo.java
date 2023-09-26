@@ -29,6 +29,9 @@ public class Consumo {
 	public double getConsumoDeEnergiaActiva() {
 		return this.consumoDeEnergiaActiva;
 	}
+	public double getConsumoDeEnergiaReactiva() {
+		return this.consumoDeEnergiaReactiva;
+	}
 
 	public double costoEnBaseA(double precioKWh) {
 		return precioKWh * this.consumoDeEnergiaActiva;

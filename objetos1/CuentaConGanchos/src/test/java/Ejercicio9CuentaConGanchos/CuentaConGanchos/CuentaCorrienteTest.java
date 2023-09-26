@@ -21,17 +21,15 @@ public class CuentaCorrienteTest {
 		cuenta.depositar(50);
 		assertEquals(550,cuenta.getSaldo());
 	}
-	//terminar de controlar si extraigo un monto que sumera mi saldo
-	//pero no del todo y extrae parte del saldo y parte del descubierto
-	//preguntar si tengo que tener una copia del descubierto fijo, otorgado por el banco
+	
 	
 	@Test
 	public void TestExtraer() {
 		assertTrue(cuenta.extraer(400));
 		assertEquals(100,cuenta.getSaldo());
 		assertTrue(cuenta.extraer(200));
-		assertEquals(0,cuenta.getDescubierto());
-		assertFalse(cuenta.extraer(10));
+		assertEquals(-100,cuenta.getSaldo());
+		assertFalse(cuenta.extraer(200));
 	}
 
 }

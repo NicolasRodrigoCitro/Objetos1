@@ -33,6 +33,7 @@ public class Usuario {
 	            .max((consumo1, consumo2) -> consumo1.getFecha().compareTo(consumo2.getFecha()))      
 	            .orElse(null); // Devuelve null si la lista de consumos está vacía
 	}
+	
 	public double ultimoConsumoActiva() {
 		if(this.ultimoConsumo()!=null)
 			return this.ultimoConsumo().getConsumoDeEnergiaActiva();
@@ -43,18 +44,21 @@ public class Usuario {
 	
 	
 	public Factura facturarEnBaseA(double precioKWh) {
-		double fdp = this.ultimoConsumo().factorDePotencia();
-		double costo = this.ultimoConsumo().costoEnBaseA(precioKWh);
-		if(fdp > 0.8) {
+		double descuento=0;
+		Consumo ultimo = this.ultimoConsumo();
+		if(ultimo == null) {
+			return new Factura(0,0,this);
+		}
+		if(ultimo.factorDePotencia() > 0.8d) {
 			//usuario binificado con el 10%
-			costo= costo * 0.90;
-			return new Factura(costo,0.10,this);
-		}else
-			return new Factura(costo,0,this);
-		
+			 descuento = 10;
+		}
+		Factura factura = new Factura(ultimo.costoEnBaseA(precioKWh),descuento,this);
+		this.facturas.add(factura);
+		return factura;
 	}
 	
-	public List<Factura> facturas() {
+	public List<Factura> getFacturas() {
 		return new ArrayList<>(this.facturas);
 	}
 	

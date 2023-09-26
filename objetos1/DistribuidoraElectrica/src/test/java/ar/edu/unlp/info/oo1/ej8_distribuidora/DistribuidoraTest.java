@@ -1,6 +1,7 @@
 package ar.edu.unlp.info.oo1.ej8_distribuidora;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 
@@ -42,7 +43,6 @@ public class DistribuidoraTest {
 	public void testConstructor() {
 		assertEquals(50d, this.distribuidora.getPrecioKW());
 		assertEquals(0d, this.distribuidora.consumoTotalActiva());
-		assertTrue(this.distribuidora.facturar().isEmpty());
 		assertTrue(this.distribuidora.getUsuarios().isEmpty());
 	}
 
@@ -71,4 +71,15 @@ public class DistribuidoraTest {
 		assertEquals(500, this.redCompleta.consumoTotalActiva(), 0.001d);
 	}
 
+	@Test
+	public void testFacturar() {
+		assertEquals(3, this.redCompleta.facturar().size());
+		assertTrue(this.distribuidora.facturar().isEmpty());
+	}
+
+	@Test
+	public void testSetPrecioKW() {
+		this.distribuidora.setPrecioKW(200d);
+		assertEquals(200d, this.distribuidora.getPrecioKW());
+	}
 }

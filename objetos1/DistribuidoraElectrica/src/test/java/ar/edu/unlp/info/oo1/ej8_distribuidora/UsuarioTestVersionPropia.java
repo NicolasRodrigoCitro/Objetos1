@@ -42,10 +42,15 @@ public class UsuarioTestVersionPropia {
 		Consumo Alto2 = new Consumo(LocalDate.of(2023, 9, 25),100,75);//0,8
 		this.usuario.agregarMedicion(Alto2);
 		assertEquals(Alto2,this.usuario.ultimoConsumo());
+		//probar si lo contiene
+		// agregar mas consumos
 	}
 	
 	@Test
-	public void testEmitirFactura() {
+	public void testFacturarEnBaseA() {
+		//chequear tambien por el resto de los atributos el monto, descuento y objeto
+		//chequear un usuario sin consumo
+		//chequear desde una factura
 		Consumo Medio = new Consumo(LocalDate.of(2023, 9, 25),100,75);//0,8
 		this.usuario.agregarMedicion(Medio);
 		assertEquals(0,this.usuario.facturarEnBaseA(200).getDescuento());
@@ -54,7 +59,7 @@ public class UsuarioTestVersionPropia {
 		assertEquals(0,this.usuario.facturarEnBaseA(200).getDescuento());
 		Consumo Alto = new Consumo(LocalDate.of(2023, 9, 27),100,50);//0,894
 		this.usuario.agregarMedicion(Alto);
-		assertEquals(0.10,this.usuario.facturarEnBaseA(200).getDescuento());
+		assertEquals(10,this.usuario.facturarEnBaseA(200).getDescuento());
 	}
 	
 }

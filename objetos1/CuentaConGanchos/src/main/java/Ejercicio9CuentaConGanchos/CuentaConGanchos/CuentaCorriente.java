@@ -5,7 +5,7 @@ public class CuentaCorriente extends Cuenta {
 	private double descubierto;
 
 	
-	//consultar como no pierdo el control del saldo del descubierto, no se explica bien en el dominio
+	
 
 	public CuentaCorriente() {
 		super();
@@ -27,7 +27,6 @@ public class CuentaCorriente extends Cuenta {
 		} else {
 			if(this.puedeExtraerDescubierto(monto)) {
 				this.extraerSinControlar(monto);
-				this.setDescubierto(this.getDescubierto() - monto);
 				return true;
 			}
 		}
@@ -36,7 +35,7 @@ public class CuentaCorriente extends Cuenta {
 	}
 
 	private boolean puedeExtraerDescubierto(double monto) {
-		if (this.getDescubierto() >= monto)
+		if (this.getDescubierto() + this.getSaldo() >= monto)
 			return true;
 		else
 			return false;

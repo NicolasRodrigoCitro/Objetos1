@@ -28,10 +28,10 @@ public class FacturaTest {
 		assertEquals(factura.getFecha(), LocalDate.now());
 		assertEquals(usuario, factura.getUsuario());
 	}
-/*
+
 	@Test
 	public void testMontoTotal() {
 		assertEquals(1800, factura.montoTotal());
-	}*/
+	}
 
 }

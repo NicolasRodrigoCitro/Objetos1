@@ -1,6 +1,7 @@
 package ar.edu.unlp.info.oo1.ej8_distribuidora;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 
@@ -26,25 +27,34 @@ public class UsuarioTest {
 	@BeforeEach
 	public void setup() {
 		this.usuario= new Usuario("Towers", "La Plata");
-		
+
 		this.consumoEnero = new Consumo(LocalDate.of(2021, 1, 1) , 800, 100);
 		this.consumoFebrero = new Consumo(LocalDate.of(2021, 2, 1) , 860, 30);
 		this.consumoMarzo = new Consumo(LocalDate.of(2021, 3, 1) , 820, 10);
 		this.consumoAbril = new Consumo(LocalDate.of(2021, 4, 1) , 200, 150);
-		
+
 		this.usuario.agregarMedicion(consumoFebrero);
 		this.usuario.agregarMedicion(consumoMarzo);
 		this.usuario.agregarMedicion(consumoEnero);
-		
+
 		this.usuarioSinDescuento = new Usuario("Turing", "Mendoza");
 		this.usuarioSinDescuento.agregarMedicion(consumoAbril);
-		
+
 		this.usuarioSinConsumos = new Usuario("Pedro", "City Bell");
+	}
+
+	@Test
+	public void testUsuario() {
+		assertEquals("Towers", this.usuario.getNombre());
+		assertEquals("La Plata", this.usuario.getDomicilio());
+		assertTrue(this.usuario.getFacturas().isEmpty());
+		assertEquals(0d, this.usuarioSinConsumos.ultimoConsumoActiva());
 	}
 
 	@Test
 	public void testUltimoConsumoActiva() {
 		assertEquals(820, this.usuario.ultimoConsumoActiva());
+		assertEquals(0, this.usuarioSinConsumos.ultimoConsumoActiva());
 	}
 
 	@Test
@@ -78,7 +88,7 @@ public class UsuarioTest {
 	public void testAgregarMedicion() {
 		Consumo ultimoConsumo = new Consumo(LocalDate.of(2021, 5, 8), 500, 5000);
 		this.usuario.agregarMedicion(ultimoConsumo);
-		assertEquals(ultimoConsumo, this.usuario.ultimoConsumo());
+		assertEquals(500, this.usuario.ultimoConsumoActiva());
 	}
 
 }

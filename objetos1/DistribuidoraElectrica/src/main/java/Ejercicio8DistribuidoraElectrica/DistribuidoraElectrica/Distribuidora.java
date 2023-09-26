@@ -17,7 +17,8 @@ public class Distribuidora {
 	public void agregarUsuario(Usuario unUsuario) {
 		this.usuarios.add(unUsuario);
 	}
-	
+	// testear factura, la cantida de facturas y que se generen las que correspondan
+	// que retornes lista vacia y no null
 	public List<Factura> facturar(){
 	 return this.usuarios.stream()
 			 .map( f -> f.facturarEnBaseA(precioKWh))
@@ -36,7 +37,7 @@ public class Distribuidora {
 		return this.precioKWh;
 	}
 	
-	public void precioKWh(double unPrecioKWh) {
+	public void setPrecioKW(double unPrecioKWh) {
 		this.precioKWh=unPrecioKWh;
 	}
 	
