@@ -1,12 +1,15 @@
 package Ejercicio10JobScheduler.JobScheduler;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class JobSchedulerTest {
-  /*  protected JobDescription firstJob;
+public class JobSchedulerPropioTest {
+
+	protected JobDescription firstJob;
     protected JobDescription highestPriorityJob;
     protected JobDescription mostEffortJob;
     protected JobDescription lastJob;
@@ -26,25 +29,29 @@ public class JobSchedulerTest {
 
     private JobScheduler newFifoScheduler() {
         JobScheduler fifoScheduler = new JobScheduler();
-        fifoScheduler.setStrategy("FIFO");
+        Fifo fifo = new Fifo("FIFO");
+        fifoScheduler.setActualStrategy(fifo);
         return fifoScheduler;
     }
 
     private JobScheduler newLifoScheduler() {
         JobScheduler lifoScheduler = new JobScheduler();
-        lifoScheduler.setStrategy("LIFO");
+        Lifo lifo = new Lifo("LIFO");
+        lifoScheduler.setActualStrategy(lifo);
         return lifoScheduler;
     }
 
     private JobScheduler newPriorityScheduler() {
         JobScheduler priorityScheduler = new JobScheduler();
-        priorityScheduler.setStrategy("HighestPriority");
+        HighestPriority highestPriority = new HighestPriority("HighestPriority");
+        priorityScheduler.setActualStrategy(highestPriority);
         return priorityScheduler;
     }
 
     private JobScheduler newEffortScheduler() {
         JobScheduler effortScheduler = new JobScheduler();
-        effortScheduler.setStrategy("MostEffort");
+        MostEffort mostEffort = new MostEffort("mostEffort");
+        effortScheduler.setActualStrategy(mostEffort);
         return effortScheduler;
     }
 
@@ -94,5 +101,6 @@ public class JobSchedulerTest {
         assertEquals(scheduler.next(), mostEffortJob);
         assertEquals(scheduler.getJobs().size(), 3);
     }
-    */
+	
+	
 }
