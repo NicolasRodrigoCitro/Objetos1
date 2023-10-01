@@ -1,0 +1,2 @@
+ Los diseños estan generados con PlantUml una plataforma online:https://plantuml.com .
+Para poder ver los diseños copie el codigo, ingrese a la pagina, y peguelo en una ventana de edicion. El grafico se genera automaticamente.

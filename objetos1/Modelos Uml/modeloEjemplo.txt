@@ -1,0 +1,22 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Cuadrado implements Figura{
+ -Lado
+ +calcularArea():Real
+ +calcularPerimetro():Real
+}
+class Circulo implements Figura{
+ -Radio
+ +calcularArea():Real
+ +calcularPerimetro():Real
+}
+class Triangulo implements Figura{
+ -Lado
+ +calcularArea():Real
+ +calcularPerimetro():Real
+}
+interface Figura{
+#abstract calcularArea():Real
+#abstract calcularPerimetro():Real
+}
+@enduml

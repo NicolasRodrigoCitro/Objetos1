@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Inversor{
+- nombre:String
+- inversiones: Inversion[*]
++ <<create>> Inversor(String:nombre)
++ agregarInversion(inversion:Inversion)
++ valorActual():Real
++ getInversiones():Inversion[*]
+}
+interface Inversion{
+# valorActual():Real
+}
+class Accion implements Inversion{
+-nombre:String
+-cantidad:Integer
+-valorUnitario:Real
++<<Create>>Accion()
++ valorActual():Real
+
+}
+class PlazoFijo implements Inversion{
+-  fechaDeConstitucion:Date
+- montoDepositado:Real
+-porcentajeDeInteresDiario:Real
++<<Create>>PlazoFijo()
++ valorActual():Real
+}
+
+Inversor --> "*" Inversion
+@enduml
