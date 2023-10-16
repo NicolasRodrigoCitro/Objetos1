@@ -9,7 +9,7 @@ public class PrismaRectangular extends Pieza {
 	
 	
 	public PrismaRectangular(int ladoMayor, int ladoMenor, int altura, String color, String material) {
-		super(material, color);
+		super(color,material);
 		this.ladoMayor = ladoMayor;
 		this.ladoMenor = ladoMenor;
 		this.altura = altura;
@@ -31,13 +31,13 @@ public class PrismaRectangular extends Pieza {
 	
 	@Override
 	public double getVolumen() {
-		return this.getLadoMayor() * this.getLadoMenor() * this.getAltura();
+		return Math.round(this.getLadoMayor() * this.getLadoMenor() * this.getAltura());
 	}
 	@Override
 	public double getSuperficie() {
-		return 2 * (this.getLadoMayor() * this.getLadoMenor() +
+		return Math.round(2 * (this.getLadoMayor() * this.getLadoMenor() +
 				this.getLadoMayor() * this.getAltura() + 
-				this.getLadoMenor() * this.getAltura()) ; 
+				this.getLadoMenor() * this.getAltura())) ; 
 	}
 	
 	

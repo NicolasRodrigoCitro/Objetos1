@@ -1,6 +1,7 @@
 package Ejercicio11Inversores.Inversores;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class PlazoFijo implements Inversion{
 	
@@ -32,7 +33,9 @@ public class PlazoFijo implements Inversion{
 
 	@Override
 	public double valorActual() {
-		double cantidadDias = LocalDate.now().toEpochDay() - this.fechaDeConstitucion.toEpochDay();
+		//double cantidadDias = LocalDate.now().toEpochDay() - this.fechaDeConstitucion.toEpochDay();
+		
+		double cantidadDias = ChronoUnit.DAYS.between(this.fechaDeConstitucion,LocalDate.of(2023, 9, 30));
 		return cantidadDias * ((this.getMontoDepositado() * this.getPorcentajeDeInteresDiario() / 100) + this.getMontoDepositado());
 	}
 

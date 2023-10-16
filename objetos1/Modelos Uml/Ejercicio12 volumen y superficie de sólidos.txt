@@ -4,6 +4,8 @@ skinparam classAttributeIconSize 0
 class ReporteDeConstruccion{
 + volumenDeMaterial(material:String):Real
 + superficieDeColor(color:String):Real
++ agregarPieza(pieza:Pieza)
++getPiezas()Pieza[*]
 +<<create>> ReporteDeConstruccion()
 }
 abstract Pieza{

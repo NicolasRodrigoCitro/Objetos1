@@ -29,11 +29,11 @@ public class Cilindro extends Pieza{
 	
 	@Override
 	public double getVolumen() {
-		return Math.PI * Math.pow(this.getRadio(), 2) * this.getAltura() ;
+		return Math.round(Math.PI * Math.pow(this.getRadio(), 2) * this.getAltura()) ;
 	}
 	@Override
 	public double getSuperficie() {
-		return  2 * Math.PI * this.getRadio() * this.getAltura() + 2 * Math.PI * Math.pow(this.getRadio(), 2);
+		return  Math.round(2 * Math.PI * this.getRadio() * this.getAltura() + 2 * Math.PI * Math.pow(this.getRadio(), 2));
 	}
 	
 	

@@ -6,7 +6,7 @@ public class Esfera extends Pieza{
 	
 
 	public Esfera(int radio, String color, String material) {
-		super(material, color);
+		super( color,material);
 		this.radio = radio;
 	}
 
@@ -23,12 +23,12 @@ Superficie de una esfera: 4 * π * radio 2
 
 	@Override
 	public double getVolumen() {
-		return 4/3 * Math.PI * Math.pow(this.getRadio(), 3);
+		return Math.round((4.0/3.0) * Math.PI * Math.pow(this.getRadio(), 3));
 	}
 
 	@Override
 	public double getSuperficie() {
-		return 4 * Math.PI * Math.pow(this.getRadio(), 2);
+		return Math.round(4 * Math.PI * Math.pow(this.getRadio(), 2));
 	}
 	
 	

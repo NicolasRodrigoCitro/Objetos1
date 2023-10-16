@@ -4,7 +4,7 @@ public abstract class Pieza {
 	private String material;
 	private String color;
 	
-	public Pieza(String material,String color) {
+	public Pieza(String color,String material) {
 		this.color=color;
 		this.material=material;
 	}
@@ -18,8 +18,8 @@ public abstract class Pieza {
 	
 	
 	
-	protected abstract double getVolumen();
-	protected abstract double getSuperficie();
+	public abstract double getVolumen();
+	public abstract double getSuperficie();
 	
 	
 }

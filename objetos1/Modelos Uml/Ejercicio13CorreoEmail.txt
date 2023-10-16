@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ClienteDeCorreo{
++<<create>>clienteDeCorreo()
++recibir(email:Email)
++getCarpeta(nombre:String):Carpeta
++agregarCarpeta(carpeta:Carpeta)
++mover(email:Email,origen:Carpeta,destino:Carpeta)
++buscar(texto:String):Email
++espacioOcupado():Integer
+}
+
+
+
+class Carpeta{
+-nombre:String
++<<create>>carpeta()
++getNombre():String
++agregarEmail(email:Email)
++eliminarEmail(email:Email)
++buscar(texto:String):Email
++tamaño():Integer
+}
+
+class Email{
+-titulo:String
+-cuerpo:String
++<<create>>Email()
++agregarArchivo(archivo:Archivo)
++existeTexto(texto:String):Boolean
++getTitulo():String
++getCuerpo():String
++adjuntos():Archivos[*]
++tamaño():Integer
+}
+
+class Archivo{
+-nombre:String
++<<create>>Archivo()
++getNombre():String
++setNombre():String
++tamaño():String
+}
+ClienteDeCorreo --> "inbox 1"Carpeta
+ClienteDeCorreo --> "carpetas *"Carpeta
+Email --> "adjuntos 0..*"Archivo
+Carpeta --> "emails 0..*"Email
+@enduml
