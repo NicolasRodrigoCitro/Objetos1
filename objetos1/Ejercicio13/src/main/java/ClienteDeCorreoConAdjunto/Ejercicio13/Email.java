@@ -21,7 +21,7 @@ public class Email {
 	}
 	
 	public boolean existeTexto(String texto) {
-		return (this.getTitulo().equals(texto) || this.getCuerpo().equals(texto));
+		return (this.getTitulo().contains(texto) || this.getCuerpo().contains(texto)) ;
 	}
 	
 	public String getTitulo() {

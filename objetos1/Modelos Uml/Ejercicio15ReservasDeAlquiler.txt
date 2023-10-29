@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Sistema{
+
++buscarPropiedadesDisponibles(inicio:Date,fin:Date):Propiedad[*]
++registrarUsuario(nombre:String,direcion:String,dni:String):Usuario
++registrarPropiedad(nombre:String,descripción:String,dirección:String,precioPorNoche:Real,usuarioPropietario:Usuario):Propiedad
+
+}
+
+
+class Reserva{
+-precioPorNoche:Real
+-estaReservado:Boolean
++getEstaDisponible():Boolean
++precioDeReserva():Real
+}
+
+class Usuario{
+-nombre:String
+-direccion:String
+-dni:String
++<<create>>Usuario(nombre:String,direcion:String,dni:String)
++calcularIngresos(inicio:Date,fin:Date):Real
++obtenerReservas():Reserva[*]
++hacerReserva(propiedad:Propiedad,periodo:DateLapse,precioPorNoche:Real):Reserva
++registrarPropiedad(propiedad:Propiedad):Propiedad
+}
+
+class Propiedad{
+-precioPorNoche:Real
+-nombre:String
+-descripcion:String
+-direccion:String
+
++<<Create>>Propiedad(nombre:String,descripción:String,dirección:String,precioPorNoche:Real)
++obtenerReservas():Reserva[*]
++eliminarReserva(fechaActual:Date)
++hacerReserva(periodo:Periodo,precioPorNoche:Real):Reserva
+}
+
+class DateLapse {
+-fechaInicio:Date
+-fechaFin:Date
+}
+
+Sistema --> " * usuarios"Usuario
+Sistema --> "0..* propiedades"Propiedad
+Reserva --> "1 cantidadDeNoches"DateLapse 
+Propiedad --> " 0..* " Reserva
+Usuario --> "0..* propiedades"Propiedad
+@enduml

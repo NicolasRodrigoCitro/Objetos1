@@ -34,7 +34,7 @@ public class testCarpeta {
 		assertEquals(this.email,this.carpetaConEmail.buscar(titulo));
 		assertEquals(this.email,this.carpetaConEmail.buscar(cuerpo));
 		String texto = "En un mes de octubre";
-		assertEquals(this.email2,this.carpetaConEmail.buscar(texto));
+		assertEquals(this.email2,this.carpetaConEmail.buscar("mes"));
 	}
 	
 	@Test

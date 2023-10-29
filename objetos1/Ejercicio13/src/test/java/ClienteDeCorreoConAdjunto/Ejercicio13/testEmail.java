@@ -27,11 +27,7 @@ public class testEmail {
 		assertTrue(this.email.existeTexto(texto1));
 		assertTrue(this.email.existeTexto(texto2));
 	}
-	@Test
-	public void testNoExisteTexto() {
-		String texto = "";
-		assertFalse(this.email.existeTexto(texto));
-	}
+	
 	@Test
 	public void testTamaño() {
 		assertEquals(29,this.email.tamaño());

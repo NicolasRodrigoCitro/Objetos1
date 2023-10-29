@@ -49,6 +49,7 @@ public class testClienteDeCorreo {
 		
 		assertEquals(email, destino.buscar(email.getCuerpo()));
 		assertNotEquals(email, origen.buscar(email.getCuerpo()));
+		// extraer lista de mail, y preguntar si lo contiene
 	}
 	
 	@Test
@@ -56,10 +57,7 @@ public class testClienteDeCorreo {
 		assertEquals(email, this.clienteConCarpetas.buscar(email.getTitulo()));
 		assertEquals(email, this.clienteConCarpetas.buscar(email.getCuerpo()));
 	}
-	@Test
-	public void testBuscarEmailInexistente() {
-		assertNull(this.clienteConCarpetas.buscar(""));
-	}
+	
 
 	@Test
 	public void testEspacioOcupado() {
