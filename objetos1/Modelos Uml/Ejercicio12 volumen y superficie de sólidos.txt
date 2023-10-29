@@ -1,0 +1,42 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+class ReporteDeConstruccion{
++ volumenDeMaterial(material:String):Real
++ superficieDeColor(color:String):Real
++ agregarPieza(pieza:Pieza)
++getPiezas()Pieza[*]
++<<create>> ReporteDeConstruccion()
+}
+abstract Pieza{
+-material:String
+-color:String
++<<create>> Pieza(material:String,color:String)
+#<<abstract>> getVolumen():Real
+#<<abstract>> getSuperficie():Real
+}
+
+class Cilindro extends Pieza{
+-radio:Integer
+-altura:Integer
++<<create>> Pieza(radio:Integer,altura:Integer,material:String,color:String)
++getVolumen():Real
++getSuperficie():Real
+}
+class Esfera extends Pieza{
+-radio:Integer
++<<create>> Pieza(radio:Integer,material:String,color:String)
++getVolumen():Real
++getSuperficie():Real
+}
+
+class PrismaRectangular extends Pieza{
+-ladoMayor:Integer
+-ladoMenor:Integer
+-altura:Integer
++<<create>> Pieza(ladoMayor:Integer,ladoMenor:Integer,altura:Integer,material:String,color:String)
++getVolumen():Real
++getSuperficie():Real
+}
+ReporteDeConstruccion --> "0..* piezas"Pieza
+@enduml
