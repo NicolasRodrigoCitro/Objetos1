@@ -1,0 +1,89 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class NumeroTelefono{
+-numero:Integer
+}
+
+class Sistema{
++agregarTelefono(numero:NumeroTelefono):NumeroTelefono
++darAltaCliente(unCliente:Cliente):Cliente
++generarFactura(cliente:Cliente,inicioPeriodo:Date,finPeriodo:Date):Factura
+}
+
+abstract class Cliente{
+-nombre:String
+-direccion:String
+-dni:String
+<<create>>Cliente(nombre:String,direccion:String,dni:String)
++agregarRegistro(registroLlamada:RegistroLlamada):RegistroLlamada
++agregarFactura(factura:Factura)
++montoTotalDeLlamadas(inicioPeriodo:Date,finPeriodo:Date):Real
+}
+
+class PersonaFisica{
+
+}
+
+class PersonaJuridica{
+-cuit:String
+<<create>>PersonaJuridica(nombre:String,direccion:String,dni:String,ciut:String,tipo:TipoPersonaJuridica)
+}
+class TipoPersonaJuridica{
+-nombre:String
+}
+
+class Factura{
+-fechaInicioDePeriodoAconsiderar:Date
+-fechaFinDePeriodoAconsiderar:Date
+-fechaYhoraFactura:Date
+-monto:Real
++getMonto():Real
+
+}
+class RegistroLlamada{
++registrarLlamada(llamada:Llamada):Llamada
+}
+
+abstract class Llamada{
+-fechaYhora:Date
+-duracion:Real
++<<create>>Llamada(fechaYhora:Date,duracion:Real)
++<<abstract>>getCosto():Real
+}
+
+class LlamadaLocal{
++<<create>>LlamadaLocal()
++getCosto():Real
+}
+class LlamadaInterurbana{
+-distanciaEnKilomentros:Real
+<<create>>LlamadaInterubana(distanciaEnKilomentros:Real)
++getCosto():Real
+}
+class LlamadaInternacional{
++<<create>>LlamadaInternacional(origen:Pais,destino:Pais)
++getCosto():Real
+}
+class Pais{
+-nombre:String
+}
+
+RegistroLlamada --> "1 numeroLlamador" NumeroTelefono
+RegistroLlamada --> "1 numeroReceptor" NumeroTelefono
+RegistroLlamada --> "1 llamada" Llamada
+LlamadaLocal --|> Llamada
+LlamadaInterurbana --|> Llamada
+LlamadaInternacional --|> Llamada
+LlamadaInternacional --> "1 origen" Pais
+LlamadaInternacional --> "1 destino" Pais
+Cliente --> "1 numero" NumeroTelefono
+Cliente --> "*" RegistroLlamada
+Cliente --> "*" Factura
+PersonaFisica --|> Cliente
+PersonaJuridica --|> Cliente
+PersonaJuridica --> "1 tipo"TipoPersonaJuridica
+Sistema --> "numeroDeTelefonosDisponibles *" NumeroTelefono
+Sistema --> "numeroDeTelefonosNoDisponibles*" NumeroTelefono
+Sistema --> "*" Cliente
+@enduml

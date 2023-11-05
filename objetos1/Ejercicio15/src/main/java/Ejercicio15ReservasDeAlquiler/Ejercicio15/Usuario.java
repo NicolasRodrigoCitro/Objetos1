@@ -23,7 +23,7 @@ public class Usuario {
 	}
 
 	public List<Reserva> obtenerReservas() {
-
+		
 		return null;
 	}
 
@@ -49,5 +49,7 @@ public class Usuario {
 		this.propieades.add(unPropiedad);
 		return unPropiedad;
 	}
+
+	
 
 }

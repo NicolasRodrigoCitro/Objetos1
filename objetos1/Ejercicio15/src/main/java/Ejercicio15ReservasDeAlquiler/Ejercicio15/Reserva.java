@@ -15,11 +15,10 @@ public class Reserva {
 		this.precioPorNoche=precioPorNoche;
 	}
 	
-	public boolean getEstaReservado(LocalDate fechaActual) {
+	public boolean getEstaReservadoAntesDe(LocalDate fechaActual) {
 		int num = fechaActual.compareTo(this.cantidadDeNoches.getFrom());
-		if(num < 0)
-			return true;
-		else return false;
+		return (num < 0);
+		
 	}
 	public boolean noEstaDentroDelPeriodo(DateLapse lapso) {
 		//return this.cantidadDeNoches.overLaps(lapso.getFrom()) && this.cantidadDeNoches.overLaps(lapso.getTo()) ;
